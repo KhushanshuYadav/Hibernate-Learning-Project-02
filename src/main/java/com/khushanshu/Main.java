@@ -14,18 +14,22 @@ public class Main {
 
 
 
-        SessionFactory sf= new Configuration().configure().addAnnotatedClass(com.khushanshu.Employee.class).buildSessionFactory();
+        SessionFactory sf= new Configuration().configure().addAnnotatedClass(com.khushanshu.Employee.class).addAnnotatedClass(com.khushanshu.Laptop.class).buildSessionFactory();
         Session session=sf.openSession();
 
+        Laptop l1=new Laptop();
+        l1.setlBrand("Dell");
+
         Address a1=new Address();
-        a1.setCity("Indore");
-        a1.setPinCode("452010");
+        a1.setCity("Bhopal");
+        a1.setPinCode("452011");
         a1.setState("M.P");
         Employee e1=new Employee();
-        e1.seteName("Ram Singh");
+        e1.seteName("Shyam Singh");
         e1.setAddress(a1);
 
         Transaction t1= session.beginTransaction();
+        session.merge(l1);
         session.persist(e1);
         t1.commit();
 

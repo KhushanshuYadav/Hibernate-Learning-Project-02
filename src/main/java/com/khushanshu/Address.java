@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
+//above annotation makes the class embeddable
 public class Address {
 
     @Column(name="Pin Code")
