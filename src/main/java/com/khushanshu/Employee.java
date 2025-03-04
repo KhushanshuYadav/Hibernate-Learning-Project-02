@@ -16,6 +16,12 @@ public class Employee {
     @Column(name="Address")
     private Address address;
 
+    @OneToOne
+    //UNI DIRECTIONAL as no mapping in laptop
+    //This will associate the employee table with laptop as one to one
+    //Employee will have FK referencing to PK of Laptop
+    private Laptop laptop;
+
     public int geteId() {
         return eId;
     }
@@ -38,6 +44,14 @@ public class Employee {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
     }
 
     @Override

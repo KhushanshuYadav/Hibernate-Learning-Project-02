@@ -18,19 +18,34 @@ public class Main {
         Session session=sf.openSession();
 
         Laptop l1=new Laptop();
-        l1.setlBrand("Dell");
+        l1.setlBrand("Apple");
 
         Address a1=new Address();
-        a1.setCity("Bhopal");
-        a1.setPinCode("452011");
+        a1.setCity("Indore");
+        a1.setPinCode("452010");
         a1.setState("M.P");
         Employee e1=new Employee();
-        e1.seteName("Shyam Singh");
+        e1.seteName("Ram Singh");
         e1.setAddress(a1);
+        e1.setLaptop(l1);
+
+        Laptop l2=new Laptop();
+        l2.setlBrand("HP");
+
+        Address a2=new Address();
+        a2.setCity("Kolkata");
+        a2.setPinCode("210201");
+        a2.setState("W.B.");
+        Employee e2=new Employee();
+        e2.seteName("Meera Singh");
+        e2.setAddress(a2);
+        e2.setLaptop(l2);
 
         Transaction t1= session.beginTransaction();
-        session.merge(l1);
+        session.persist(l1);
         session.persist(e1);
+        session.persist(l2);
+        session.persist(e2);
         t1.commit();
 
     }

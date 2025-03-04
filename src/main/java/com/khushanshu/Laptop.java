@@ -14,6 +14,10 @@ public class Laptop {
     @Column(name="Brand")
     private String lBrand;
 
+
+    //since there is no mapping annotation here so laptop is not aware of Employee
+
+
     public int getlId() {
         return lId;
     }
