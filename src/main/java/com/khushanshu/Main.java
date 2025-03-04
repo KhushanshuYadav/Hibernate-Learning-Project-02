@@ -29,6 +29,8 @@ public class Main {
         e1.setAddress(a1);
         e1.setLaptop(l1);
 
+
+
         Laptop l2=new Laptop();
         l2.setlBrand("HP");
 
@@ -40,6 +42,11 @@ public class Main {
         e2.seteName("Meera Singh");
         e2.setAddress(a2);
         e2.setLaptop(l2);
+
+
+        l1.setEmployee(e1);  //not setting employees for laptop will create a col with null values for FK
+        l2.setEmployee(e2);
+        //we can also do l1->e2 but e2->l1 but it is logically incorrect
 
         Transaction t1= session.beginTransaction();
         session.persist(l1);

@@ -17,7 +17,7 @@ public class Employee {
     private Address address;
 
     @OneToOne
-    //UNI DIRECTIONAL as no mapping in laptop
+    //BI DIRECTIONAL as  mapping in laptop too
     //This will associate the employee table with laptop as one to one
     //Employee will have FK referencing to PK of Laptop
     private Laptop laptop;

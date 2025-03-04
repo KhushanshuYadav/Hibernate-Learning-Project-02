@@ -14,8 +14,11 @@ public class Laptop {
     @Column(name="Brand")
     private String lBrand;
 
-
-    //since there is no mapping annotation here so laptop is not aware of Employee
+    @OneToOne
+    //BI DIRECTIONAL
+    //now laptop will also have FK referring to PK of employee
+    //Laptops is now aware of employee
+    private Employee employee;
 
 
     public int getlId() {
@@ -32,6 +35,14 @@ public class Laptop {
 
     public void setlBrand(String lBrand) {
         this.lBrand = lBrand;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
