@@ -54,16 +54,20 @@ public class Main {
         e1.seteName("Ram Singh");
         e1.setAddress(a1);
         e1.setLaptop(l1);
+        e1.setDepartment(d1);
 
         Employee e2=new Employee();
         e2.seteName("Meera Singh");
         e2.setAddress(a2);
         e2.setLaptop(l2);
+        e2.setDepartment(d1);
 
         Employee e3=new Employee();
         e3.seteName("Vikas Kumar");
         e3.setAddress(a3);
         e3.setLaptop(l3);
+        e3.setDepartment(d2);
+
 
 
         l1.setEmployee(e1);  //not setting employees for laptop will create a col with null values for FK

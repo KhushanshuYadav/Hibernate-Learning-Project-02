@@ -27,6 +27,13 @@ public class Employee {
 
     private Laptop laptop;
 
+    @ManyToOne
+    private Department department;
+    //this will have a FK referencing to PK of department
+
+
+    //getters and setters
+
     public int geteId() {
         return eId;
     }
@@ -57,6 +64,14 @@ public class Employee {
 
     public void setLaptop(Laptop laptop) {
         this.laptop = laptop;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
