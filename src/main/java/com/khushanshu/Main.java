@@ -14,8 +14,21 @@ public class Main {
 
 
 
-        SessionFactory sf= new Configuration().configure().addAnnotatedClass(com.khushanshu.Employee.class).addAnnotatedClass(com.khushanshu.Laptop.class).addAnnotatedClass(com.khushanshu.Department.class).buildSessionFactory();
+        SessionFactory sf= new Configuration().configure().addAnnotatedClass(com.khushanshu.Employee.class).addAnnotatedClass(com.khushanshu.Laptop.class).addAnnotatedClass(com.khushanshu.Department.class).addAnnotatedClass(com.khushanshu.Skill.class).buildSessionFactory();
         Session session=sf.openSession();
+
+        Skill s1=new Skill();
+        s1.setsName("Coding");
+
+        Skill s2=new Skill();
+        s2.setsName("Testing");
+
+        Skill s3=new Skill();
+        s3.setsName("Designing");
+
+        Skill s4=new Skill();
+        s4.setsName("Management");
+
 
         Department d1=new Department();
         d1.setdName("IT");
@@ -56,6 +69,7 @@ public class Main {
         e1.setLaptop(l1);
         e1.setDepartment(d1);
 
+
         Employee e2=new Employee();
         e2.seteName("Meera Singh");
         e2.setAddress(a2);
@@ -78,6 +92,13 @@ public class Main {
         d1.getEmployees().add(e2);
         d2.getEmployees().add(e3);
 
+        s1.getEmployees().add(e1);
+        s1.getEmployees().add(e2);
+        s2.getEmployees().add(e2);
+        s2.getEmployees().add(e3);
+        s3.getEmployees().add(e1);
+
+
 
 
 
@@ -88,8 +109,14 @@ public class Main {
         //session.persist(l2);
         session.persist(e2);
         session.persist(e3);
+
         session.persist(d1);
         session.persist(d2);
+
+        session.persist(s1);
+        session.persist(s2);
+        session.persist(s3);
+        session.persist(s4);
 
         t1.commit();
 
