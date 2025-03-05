@@ -14,39 +14,68 @@ public class Main {
 
 
 
-        SessionFactory sf= new Configuration().configure().addAnnotatedClass(com.khushanshu.Employee.class).addAnnotatedClass(com.khushanshu.Laptop.class).buildSessionFactory();
+        SessionFactory sf= new Configuration().configure().addAnnotatedClass(com.khushanshu.Employee.class).addAnnotatedClass(com.khushanshu.Laptop.class).addAnnotatedClass(com.khushanshu.Department.class).buildSessionFactory();
         Session session=sf.openSession();
+
+        Department d1=new Department();
+        d1.setdName("IT");
+
+        Department d2=new Department();
+        d2.setdName("Sales");
+
 
         Laptop l1=new Laptop();
         l1.setlBrand("Apple");
+
+        Laptop l2=new Laptop();
+        l2.setlBrand("HP");
+
+        Laptop l3=new Laptop();
+        l3.setlBrand("Lenovo");
+
 
         Address a1=new Address();
         a1.setCity("Indore");
         a1.setPinCode("452010");
         a1.setState("M.P");
-        Employee e1=new Employee();
-        e1.seteName("Ram Singh");
-        e1.setAddress(a1);
-        e1.setLaptop(l1);
-
-
-
-        Laptop l2=new Laptop();
-        l2.setlBrand("HP");
 
         Address a2=new Address();
         a2.setCity("Kolkata");
         a2.setPinCode("210201");
         a2.setState("W.B.");
+
+        Address a3=new Address();
+        a3.setCity("Mumbai");
+        a3.setPinCode("850963");
+        a3.setState("M.H.");
+
+
+        Employee e1=new Employee();
+        e1.seteName("Ram Singh");
+        e1.setAddress(a1);
+        e1.setLaptop(l1);
+
         Employee e2=new Employee();
         e2.seteName("Meera Singh");
         e2.setAddress(a2);
         e2.setLaptop(l2);
 
+        Employee e3=new Employee();
+        e3.seteName("Vikas Kumar");
+        e3.setAddress(a3);
+        e3.setLaptop(l3);
+
 
         l1.setEmployee(e1);  //not setting employees for laptop will create a col with null values for FK
-        l2.setEmployee(e2);
-        //we can also do l1->e2 but e2->l1, but it will be logically incorrect
+        l2.setEmployee(e2);  //we can also do l1->e2 but e2->l1, but it will be logically incorrect
+        l3.setEmployee(e3);
+
+        d1.getEmployees().add(e1);
+        d1.getEmployees().add(e2);
+        d2.getEmployees().add(e3);
+
+
+
 
         Transaction t1= session.beginTransaction();
         //session.persist(l1);
@@ -54,6 +83,10 @@ public class Main {
         session.persist(e1);
         //session.persist(l2);
         session.persist(e2);
+        session.persist(e3);
+        session.persist(d1);
+        session.persist(d2);
+
         t1.commit();
 
     }
