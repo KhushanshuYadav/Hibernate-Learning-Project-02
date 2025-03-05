@@ -49,9 +49,10 @@ public class Main {
         //we can also do l1->e2 but e2->l1, but it will be logically incorrect
 
         Transaction t1= session.beginTransaction();
-        session.persist(l1);
+        //session.persist(l1);
+        //since cascading so even if we do not persist laptops still they will persisted automatically
         session.persist(e1);
-        session.persist(l2);
+        //session.persist(l2);
         session.persist(e2);
         t1.commit();
 

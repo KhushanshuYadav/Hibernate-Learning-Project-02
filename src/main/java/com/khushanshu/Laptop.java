@@ -14,7 +14,7 @@ public class Laptop {
     @Column(name="Brand")
     private String lBrand;
 
-    @OneToOne(mappedBy = "laptop")
+    @OneToOne
     //mappedBy tells to Laptop that mapping is handled by laptop col i.e FK in target i.e Employee so no need to create an extra column of FK here
     //we can do same in Employee in too but NOT IN BOTH
     //BI DIRECTIONAL

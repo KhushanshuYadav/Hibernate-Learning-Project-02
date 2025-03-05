@@ -16,12 +16,15 @@ public class Employee {
     @Column(name="Address")
     private Address address;
 
-    @OneToOne
+    @OneToOne(mappedBy = "employee", cascade=CascadeType.ALL)
+
+    //cascading tells how the changes in parent entity will propagate in child (total 8 cascade types are there)
 
 
     //BI DIRECTIONAL as  mapping in laptop too
     //This will associate the employee table with laptop as one to one
     //Employee will have FK referencing to PK of Laptop
+
     private Laptop laptop;
 
     public int geteId() {
