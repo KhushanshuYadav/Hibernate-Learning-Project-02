@@ -28,6 +28,7 @@ public class Employee {
     private Laptop laptop;
 
     @ManyToOne
+    @JoinColumn(name = "Department Id")
     private Department department;
     //this will have a FK referencing to PK of department
 

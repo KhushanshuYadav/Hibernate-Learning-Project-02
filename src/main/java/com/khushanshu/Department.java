@@ -19,10 +19,10 @@ public class Department {
     @Column(name="Name")
     private String dName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "department")
     private List<Employee> employees=new ArrayList<>();
 
-    //since no mappedBy so hibernate will create a mapping table named department_employee
+    //"mappedBy" will avoid extra table
 
 
     public int getdId() {
