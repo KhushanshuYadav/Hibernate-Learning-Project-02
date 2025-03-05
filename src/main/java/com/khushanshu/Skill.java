@@ -17,7 +17,7 @@ public class Skill {
     @Column(name="Name")
     private String sName;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Employee> employees=new ArrayList<>();
     //zero or one or more skill can be possessed by zero,one or more employees
     //a new table skills_employees will be created

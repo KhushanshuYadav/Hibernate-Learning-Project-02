@@ -2,6 +2,9 @@ package com.khushanshu;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="Employees")
 public class Employee {
@@ -31,6 +34,10 @@ public class Employee {
     @JoinColumn(name = "Department Id")
     private Department department;
     //this will have a FK referencing to PK of department
+
+    @ManyToMany
+    private List<Skill> skills=new ArrayList<>();
+    //no mapped by so a mapping table employee_skills;
 
 
     //getters and setters
@@ -73,6 +80,14 @@ public class Employee {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 
     @Override
