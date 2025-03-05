@@ -35,9 +35,9 @@ public class Employee {
     private Department department;
     //this will have a FK referencing to PK of department
 
-    @ManyToMany
+    @ManyToMany(mappedBy ="employees" )
     private List<Skill> skills=new ArrayList<>();
-    //no mapped by so a mapping table employee_skills;
+    // employee_skills will not be created now;
 
 
     //getters and setters

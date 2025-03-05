@@ -18,6 +18,8 @@ public class Skill {
     private String sName;
 
     @ManyToMany(cascade = CascadeType.ALL)
+
+    //cascading does not fills the other join table
     private List<Employee> employees=new ArrayList<>();
     //zero or one or more skill can be possessed by zero,one or more employees
     //a new table skills_employees will be created

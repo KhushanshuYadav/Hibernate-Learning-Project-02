@@ -84,6 +84,7 @@ public class Main {
 
 
 
+
         l1.setEmployee(e1);  //not setting employees for laptop will create a col with null values for FK
         l2.setEmployee(e2);  //we can also do l1->e2 but e2->l1, but it will be logically incorrect
         l3.setEmployee(e3);
